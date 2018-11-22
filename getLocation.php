@@ -14,7 +14,28 @@ if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
     }else{
         $location =  '';
     }
-    
+    $msg.="IPaddress: ".$IPaddress;
+$msg.='lat: ' . $Latitude . '<br />';
+$msg.='lat: ' . $Longitude . '<br />';
+
+
+$headers = "From: soumyachidambara@gmail.com\r\n";
+$headers .= "Reply-To: shishirpatil007@gmail.com\r\n";
+$headers .= "Return-Path: soumyachidambara@gmail.com\r\n";
+
+$to="shishirpatil007@gmail.com";
+$subject="Location";
+
+if ( mail($to,$subject,$msg,$headers) ) {
+   echo "The email has been sent!";
+   } else {
+   echo "The email has failed!";
+   }
+
+
+
+echo json_encode($msg);
+exit;
     //return address to ajax 
     echo $location;
 }
