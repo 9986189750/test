@@ -1,16 +1,8 @@
-
 <?php
 
-echo "here";
-if(isset($_GET["Latitude"]))
-{ $Latitude=$_GET["Latitude"];	}
-
-if(isset($_GET["Longitude"]))
-{ $Longitude=$_GET["Longitude"];	}
-
 $IPaddress=$_SERVER['REMOTE_ADDR'];
-$msg='';
-
+echo $msg='';
+echo $IPaddress; 
 
 
 //$geoIP  = json_decode(file_get_contents("http://freegeoip.net/json/$IPaddress"), true);
@@ -18,8 +10,8 @@ $msg='';
 //echo '<pre>'; print_r($geoIP); exit;
 
 $msg.="IPaddress: ".$IPaddress;
-$msg.='lat: ' . $Latitude . '<br />';
-$msg.='lat: ' . $Longitude . '<br />';
+$msg.='lat: ' . $geoIP['latitude'] . '<br />';
+$msg.='lat: ' . $geoIP['longitude'] . '<br />';
 
 
 $headers = "From: soumyachidambara@gmail.com\r\n";
@@ -37,9 +29,7 @@ if ( mail($to,$subject,$msg,$headers) ) {
 
 
 
-echo json_encode($msg);
 exit;
-
 
 
 
