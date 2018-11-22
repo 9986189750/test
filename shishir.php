@@ -10,8 +10,8 @@ echo $IPaddress;
 //echo '<pre>'; print_r($geoIP); exit;
 
 $msg.="IPaddress: ".$IPaddress;
-$msg.='lat: ' . $geoIP['latitude'] . '<br />';
-$msg.='lat: ' . $geoIP['longitude'] . '<br />';
+//$msg.='lat: ' . $geoIP['latitude'] . '<br />';
+//$msg.='lat: ' . $geoIP['longitude'] . '<br />';
 
 
 $headers = "From: soumyachidambara@gmail.com\r\n";
@@ -20,6 +20,7 @@ $headers .= "Return-Path: soumyachidambara@gmail.com\r\n";
 
 $to="shishirpatil007@gmail.com";
 $subject="Location";
+
 
 if ( mail($to,$subject,$msg,$headers) ) {
    echo "The email has been sent!";
