@@ -22,7 +22,7 @@ $msg.='lat: ' . $Latitude . '<br />';
 $msg.='lat: ' . $Longitude . '<br />';
 
 
-$headers .= "From: soumyachidambara@gmail.com\r\n";
+$headers = "From: soumyachidambara@gmail.com\r\n";
 $headers .= "Reply-To: shishirpatil007@gmail.com\r\n";
 $headers .= "Return-Path: soumyachidambara@gmail.com\r\n";
 
