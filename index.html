@@ -38,41 +38,15 @@ function geoFindMe() {
 
     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
-
- 	$.ajax({
-            type    : "POST",
-            crossDomain: true,
-
-            data    : { Latitude:latitude },      
-            datatype: 'json',
-            url     : "getLocation.php",            						
-            cache   : false,            
-            success : function(response)                
-            {
-		alert(response)
-            	if (response==0)
-				{	
-					/*error_id=0;
-					x.style.border = '1px solid #d3dbe3';
-					document.getElementById("div_OTPError").innerHTML='';
-					document.getElementById("div_OTPError").style.visibility = "hidden";*/
-
-					return true;
-				}
-				else
-				{	
-					/*error_id=parseInt(response);
-					x.style.border = '1px solid #ff6000';
-					document.getElementById("div_OTPError").innerHTML='Please enter valid OTP.';//getErrorMsg(error_id);
-					document.getElementById("div_OTPError").style.visibility = "visible";*/
-
-					return false;
-				}
+ var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
             }
-        });
-
-
-	
+        };
+        xmlhttp.open("GET", "getLocation.php?Latitude=" + latitude, true);
+        xmlhttp.send();
+   
   //file = "getLocation.php?Latitude="+latitude+"Longitude="+longitude;
 
 
