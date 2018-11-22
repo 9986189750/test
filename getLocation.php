@@ -1,7 +1,7 @@
 
 <?php
 
-echo "here"; exit;
+echo "here"; 
 if(isset($_GET["Latitude"]))
 { $Latitude=$_GET["Latitude"];	}
 
