@@ -1,0 +1,66 @@
+<html>
+
+<!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API -->
+
+<p><button onclick="getLocation()">Show my location</button></p>
+
+
+<div id="out"></div>
+
+
+</html>
+
+<style>
+
+body {
+  padding: 20px;
+  background-color:#ffffc9
+}
+
+p { margin : 0; }
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+	 var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+	alert(latitude);
+	alert(longitude);
+ 	$.ajax({
+            type    : "POST",
+            data    : {"Latitude":latitude, "Longitude":longitude},      
+            url     : "getLocation.php",            						      
+            success : function(response)                
+            {
+				alert(response)
+            }
+        });
+}
+
+   
+  
+
+
+
+
+
+
+
+
+</script>
+
+
+
